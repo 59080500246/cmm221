@@ -1,87 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"> 
-  <title>CMM 19</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
-  <link rel="stylesheet" href="/assets/home.css">
-</head>
-<body>
+{% extends 'layout/base.twig' %}
 
-  <header>
- 
-    <section class="hero is-light">
-
-     <!img src="/assets/images/90dd9f12fdd1eefb8c8976903944c026-facebook-icon-logo-by-vexels.png" alt="" width="45"
-    height="auto">
-
-  <div class="hero-body">
-    <div class="container">
-
-    <div class="has-text-centered">
-
-    <img src="/assets/images/logo.png" alt="" width="145"
-    height="auto">
-
-    </div>
-  </div>
-
-</section>
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="/assets/home.css">
+{% endblock %}
 
 
+{% block content %}
 
-
-
-   
-    </div>
-    <nav class="navbar is-primary">
-       <div id="navMenuTransparentExample" class="navbar-menu">
-    <div class="navbar-start">
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link  is-active" href="/documentation/overview/start/">
-          ATOM
-        </a>
-        <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item ">
-            WORK
-          </a>
-          <a class="navbar-item ">
-            WORK
-          </a>
-          <a class="navbar-item ">
-            WORK
-          </a>
-          <a class="navbar-item ">
-            WORK
-          </a>
-
-            </div>
-          </div>
-
-      <a href="a" class="navbar-item">WORK</a>
-      <a href="a" class="navbar-item">WORK</a>
-      <a href="a" class="navbar-item">WORK</a>
-      <a href="a" class="navbar-item">WORK</a>
-      <a href="a" class="navbar-item">WORK</a>
-      <a href="a" class="navbar-item">WORK</a>
-      <a href="a" class="navbar-item">WORK</a>
-      <a href="a" class="navbar-item">WORK</a>
-
-
-        </div>
-
-
-
-    </nav>
-
-
-
-    </div>
-
-
-
-
-  </header>
   </br>
 
 <main>
@@ -91,18 +16,18 @@
 
     <div class="highlight">
       <div class="columns is-marginless">
-        <div class="column highlight-item">
+        <a class="column highlight-item" style="background-image: url({{highlight.url }});">
           <div class="has-text-white">
               <div class="has-text-weight-light">
                  <div class="has-text-weight-bold">
             <br>
-           SILVERLIGHT
+           <h1>{{ highlight.title }}</h1>
            <br>
             <br>
           </div>
         </div>
           </div>
-        </div>
+        </a>
       </div>
           
       </div>
@@ -110,26 +35,18 @@
    </div>
 
  <div class="thumbnail">
-      <div class="has-text-white">
+    <div class="has-text-white">
       <div class="is-size-5">
         <div class="columns is-paddingless">
-         <div class="column thumbnail-item is-paddingless" style="background-image: url(/assets/images/home/banner/thumbnail-1.jpg);">
-         ท่องเที่ยว
-              </div>
-                     <div class="column thumbnail-item is-paddingless" style="background-image: url(/assets/images/home/banner/thumbnail-2.jpg);">
-         ท่องเที่ยว
-              </div>
-                    <div class="column thumbnail-item is-paddingless" style="background-image: url(/assets/images/home/banner/thumbnail-3.jpg);">
-         ท่องเที่ยว
-              </div>
-                     <div class="column thumbnail-item is-paddingless" style="background-image: url(/assets/images/home/banner/thumbnail-4.jpg);">
-         ท่องเที่ยว
-              </div>
-                    <div class="column thumbnail-item is-paddingless" style="background-image: url(/assets/images/home/banner/thumbnail-5.jpg);">
-         ท่องเที่ยว
-              </div>
-          </div>
+          {% for item in thumbnail %}
+         <a href="#" class="column thumbnail-item is-paddingless" style="background-image: url({{ item.url }});">
+          {{ item.title }}
+         </a>
+         {% endfor %}
+        </div>
       </div>
+    </div>
+  </div>
 
 
    </section>
@@ -293,13 +210,7 @@
      </div>
    </section>
   </main>
-  </body>
-  </html>
 
-
-</body>
-  
-</html>
 
 
 <footer class="footer">
@@ -312,3 +223,4 @@
     </div>
   </div>
 </footer>
+{% endblock %}
